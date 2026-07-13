@@ -1,15 +1,6 @@
-# Implementation Plan — Modul Pembelian (Purchase Module)
+## 1. Implementation Plan — Modul Pembelian (Purchase Module)
 
-**Versi**: 1.0  
-**Tanggal**: 13 Juli 2026  
-**Dibuat oleh**: Tim Dashmo  
-**Diperuntukkan**: Client
-
----
-
-## 1. Latar Belakang
-
-Customer meminta penambahan fitur **Modul Pembelian** pada sistem Dashmo. Fitur ini bertujuan untuk mengelola transaksi pembelian barang dari pemasok, termasuk kemampuan update harga beli, perhitungan HPP (Harga Pokok Penjualan), penambahan stok, serta manajemen pembayaran berdasarkan limit kredit pemasok.
+Penambahan fitur **Modul Pembelian** pada sistem Dashmo. Fitur ini bertujuan untuk mengelola transaksi pembelian barang dari pemasok, termasuk kemampuan update harga beli, perhitungan HPP (Harga Pokok Penjualan), penambahan stok, serta manajemen pembayaran berdasarkan limit kredit pemasok.
 
 ---
 
@@ -325,19 +316,6 @@ php artisan test --filter PurchaseServiceTest
 | 6 | Parsing `"COD"` | `purchasetype=0`, `duedays=0`, `accepted=1` |
 | 7 | Jurnal akuntansi | Debit inventory = kredit payable, nilai sesuai total net |
 | 8 | Rollback jika ada error di tengah proses | Semua tabel rollback, tidak ada data parsial |
-
----
-
-## 9. Estimasi Pengerjaan
-
-| Komponen | Estimasi |
-|---|---|
-| `PurchaseService` (logic utama) | 3–4 hari |
-| `CreatePurchaseRequest` (validasi) | 0.5 hari |
-| `PurchaseController` + Routes | 0.5 hari |
-| Unit & Integration Testing | 1–2 hari |
-| Review & QA | 1 hari |
-| **Total** | **~6–8 hari kerja** |
 
 ---
 
